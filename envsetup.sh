@@ -508,6 +508,7 @@ function print_lunch_menu()
 
     echo
 }
+
 function brunch()
  {
      breakfast $*
