@@ -85,7 +85,6 @@ function check_product()
      else
          TOXIC_BUILD=
      fi
-     export TOXIC_BUILD
  # ------------
  
         TARGET_PRODUCT=$1 \
