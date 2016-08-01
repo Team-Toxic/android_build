@@ -1893,19 +1893,14 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-TARGET_PACKAGE := $(PRODUCT_OUT)/AOSP-RRO-$(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(TARGET_DEVICE)-$(USER).zip
+TOXIC_TARGET_PACKAGE := $(PRODUCT_OUT)/ToxicOS-$(ROM_VERSION).zip
 
-.PHONY: otapackage bacon aosprro bootzip
+.PHONY: otapackage bacon 
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TARGET_PACKAGE)
-	$(hide) $(MD5SUM) $(TARGET_PACKAGE) > $(TARGET_PACKAGE).md5sum
-	@echo -e ${CL_BLD}${CL_CYN}"===============================-Package complete-==============================="${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Zip: "${CL_YLW} $(TARGET_PACKAGE)${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"MD5: "${CL_YLW}" `cat $(TARGET_PACKAGE).md5sum | awk '{print $$1}' `"${CL_RST}
-	@echo -e ${CL_BLD}${CL_YLW}"Size:"${CL_YLW}" `du -sh $(TARGET_PACKAGE) | awk '{print $$1}' `"${CL_RST}
-	@echo -e ${CL_BLD}${CL_CYN}"================================================================================"${CL_RST}
-aosprro: bacon
+	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TOXIC_TARGET_PACKAGE)
+	$(hide) $(MD5SUM) $(TOXIC_TARGET_PACKAGE) > $(TOXIC_TARGET_PACKAGE).md5sum
+	@echo -e "Package complete: $(TOXIC_TARGET_PACKAGE)"
 
 bootzip: bootimage
 	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
