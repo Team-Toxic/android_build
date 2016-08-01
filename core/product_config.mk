@@ -185,9 +185,19 @@ all_product_configs := $(call get-product-makefiles,\
     $(SRC_TARGET_DIR)/product/AndroidProducts.mk)
 
  else
+ 
+   ifneq ($(TOXIC_BUILD),)
+
+    all_product_configs := device/*/$(TOXIC_BUILD)/toxic.mk
+
+  else
+
     # Read in all of the product definitions specified by the AndroidProducts.mk
     # files in the tree.
-    all_product_configs := $(get-all-product-makefiles)
+      all_product_configs := $(get-all-product-makefiles)
+
+  endif # TOXIC_BUILD
+
   endif # TARGET_BUILD_APPS
 
 # Find the product config makefile for the current product.
