@@ -1902,12 +1902,6 @@ bacon: otapackage
 	$(hide) $(MD5SUM) $(TOXIC_TARGET_PACKAGE) > $(TOXIC_TARGET_PACKAGE).md5sum
 	@echo -e "Package complete: $(TOXIC_TARGET_PACKAGE)"
 
-bootzip: bootimage
-	$(BOOT_ZIP_FROM_IMAGE_SCRIPT) \
-	   $(recovery_fstab) \
-	   $(OUT) \
-	   $(TARGET_DEVICE)
-
 # -----------------------------------------------------------------
 # The factory package
 
