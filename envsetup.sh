@@ -79,6 +79,15 @@ function check_product()
         return
     fi
 
+ # Set TOXIC_BUILD
+     if (echo -n $1 | grep -q -e "^TOXIC_") ; then
+         TOXIC_BUILD=$(echo -n $1 | sed -e 's/^TOXIC_//g')
+     else
+         TOXIC_BUILD=
+     fi
+     export TOXIC_BUILD
+ # ------------
+ 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \
         TARGET_BUILD_TYPE= \
