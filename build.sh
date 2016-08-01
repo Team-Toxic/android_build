@@ -8,7 +8,7 @@ echo -e ""
 else
 DEVICE="$1"
 . build/envsetup.sh
-lunch aosp_$DEVICE-userdebug
+lunch toxic_$DEVICE-userdebug
 export KBUILD_BUILD_HOST="android-build-system"
 mka bacon
 fi
