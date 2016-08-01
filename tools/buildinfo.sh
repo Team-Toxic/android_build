@@ -61,4 +61,6 @@ if [ "$TARGET_UNIFIED_DEVICE" == "" ] ; then
 fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
+echo "ro.toxic.device=$TOXIC_DEVICE"
+ 
 echo "# end build properties"
