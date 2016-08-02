@@ -1894,14 +1894,14 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
 	   $(if $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \
 	   $(BUILT_TARGET_FILES_PACKAGE) $@
 
-TOXIC_TARGET_PACKAGE := $(PRODUCT_OUT)/ToxicOS-$(ROM_VERSION).zip
+TOXIC_TARGET_PACKAGE := $(PRODUCT_OUT)/$(TOXIC_VERSION).zip
 
 .PHONY: otapackage bacon 
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TOXIC_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(TOXIC_TARGET_PACKAGE) > $(TOXIC_TARGET_PACKAGE).md5sum
-	@echo -e "Package complete: $(TOXIC_TARGET_PACKAGE)"
+	@echo -e "Congo Toxic Build completed: $(TOXIC_TARGET_PACKAGE)"
 
 # -----------------------------------------------------------------
 # The factory package
