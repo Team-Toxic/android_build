@@ -619,6 +619,25 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
 
+  script.Print("");
+ 
+  script.Print(" _________________________________________________________");
+  script.Print("|                                                         |");
+  script.Print("|                                                         |");
+  script.Print("|___________          .__           ________   _______    |"); 
+  script.Print("|\__    ___/______  __|__| ____    /  _____/   \   _  \   |"); 
+  script.Print("|  |    | /  _ \  \/  /  |/ ___\  /   __  \    /  /_\  \  |");      
+  script.Print("|  |    |(  <_> >    <|  \  \___  \  |__\  \   \  \_/   \ |");   
+  script.Print("|  |____| \____/__/\_ \__|\___  >  \_____  / /\ \_____  / |"); 
+  script.Print("|                    \/       \/         \/  \/       \/  |"); 
+  script.Print("|                                                         |"); 
+  script.Print("|                                                         |");  
+  script.Print("|                                                         |");
+  script.Print("|              Pure AOSP 6.0.1 RRO LAYERS                 |");
+  script.Print("|_________________________________________________________|");
+ 
+  script.Print("");
+ 
   CopyInstallTools(output_zip)
   script.UnpackPackageDir("install", "/tmp/install")
   script.SetPermissionsRecursive("/tmp/install", 0, 0, 0o755, 0o644, None, None)
