@@ -1901,7 +1901,8 @@ otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(TOXIC_TARGET_PACKAGE)
 	$(hide) $(MD5SUM) $(TOXIC_TARGET_PACKAGE) > $(TOXIC_TARGET_PACKAGE).md5sum
-	@echo -e "Congo Toxic Build completed: $(TOXIC_TARGET_PACKAGE)"
+	@echo -e "You Have Successfully Compiled Toxic OS Go Grab your build: $(TOXIC_TARGET_PACKAGE)"
+        @echo -e "Regards Team Toxic OS (AOSP)+OMS"
 
 # -----------------------------------------------------------------
 # The factory package
