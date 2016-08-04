@@ -65,7 +65,7 @@ endif # CALLED_FROM_SETUP
 ifneq ($(PRINT_BUILD_CONFIG),)
 HOST_OS_EXTRA:=$(shell python -c "import platform; print(platform.platform())")
 $(info ======== Welcome To Team Toxic-OS ==========)
-$(info ======== NEW Edition (AOSP)+ RRO ===========) 
+$(info ======== NEW Edition (AOSP)+ OMS Substratum ===========) 
 $(info ============================================)
 $(info   PLATFORM_VERSION_CODENAME=$(PLATFORM_VERSION_CODENAME))
 $(info   PLATFORM_VERSION=$(PLATFORM_VERSION))
