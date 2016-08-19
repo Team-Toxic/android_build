@@ -619,7 +619,8 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
 
-  script.Print("");
+  date = GetBuildProp("ro.build.date", OPTIONS.info_dict)
+  model = GetBuildProp("ro.product.model", OPTIONS.info_dict)
  
   script.Print(" _________________________________________________________");
   script.Print("|                                                         |");
@@ -631,9 +632,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("|  |____| \____/__/\_ \__|\___  >  \_____  / /\ \_____  / |"); 
   script.Print("|                    \/       \/         \/  \/       \/  |"); 
   script.Print("|                                                         |"); 
-  script.Print("|                                                         |");  
-  script.Print("|                                                         |");
-  script.Print("|              Pure AOSP 6.0.1 RRO LAYERS                 |");
+  script.Print("|    This Package is for device %s"%(model)               |");  
+  script.Print("|    Compiled On:  %s"%(date)                            |");
+  script.Print("|              Pure AOSP 6.0.1 Substratum OMS             |");
   script.Print("|_________________________________________________________|");
  
   script.Print("");
